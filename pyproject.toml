@@ -1,0 +1,20 @@
+[project]
+name = "keelson-pointcloud-vessel-extraction"
+version = "0.1.0"
+description = "Geometry-only vessel extraction and tracking from Keelson point clouds"
+requires-python = ">=3.11"
+dependencies = ["jsonschema>=4.18,<5", "numpy>=1.26,<3"]
+
+[project.scripts]
+pointcloud-vessel-extraction2keelson = "pointcloud_vessel_extraction2keelson:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["vessel_extraction_core", "pointcloud_vessel_extraction2keelson"]
+package-dir = {"" = "src"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

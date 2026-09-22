@@ -1,0 +1,57 @@
+{
+  "inputs": {
+    "point_cloud_key": "rise/@v0/landkrabb/pubsub/point_cloud/merged_pointcloud",
+    "expected_frame_id": "cloud_a_frame"
+  },
+  "output": {
+    "realm": "rise",
+    "entity_id": "landkrabb",
+    "source_id": "pointcloud_vessel_extraction"
+  },
+  "processing": {
+    "process_rate_hz": 5.0,
+    "extraction_voxel_m": 0.15,
+    "maximum_points": 80000,
+    "component_cell_m": 1.25,
+    "minimum_component_points": 40
+  },
+  "roi": {
+    "enabled": true,
+    "min_x_m": 1.0,
+    "max_x_m": 45.0,
+    "min_y_m": -200.0,
+    "max_y_m": 45.0,
+    "min_z_m": -5.0,
+    "max_z_m": 50.0
+  },
+  "shape_limits": {
+    "min_length_m": 4.0,
+    "max_length_m": 200.0,
+    "min_width_m": 1.0,
+    "max_width_m": 45.0,
+    "min_height_m": 0.75,
+    "max_height_m": 45.0,
+    "min_elongation": 1.2,
+    "lower_quantile": 0.03,
+    "upper_quantile": 0.97
+  },
+  "tracking": {
+    "max_track_jump_m": 25.0,
+    "size_change_penalty": 0.1,
+    "max_missed_frames": 5,
+    "max_active_tracks": 32,
+    "history_seconds": 12.0,
+    "minimum_course_baseline_s": 1.0,
+    "minimum_course_speed_mps": 0.25,
+    "course_projection_seconds": 15.0,
+    "maximum_projected_length_m": 150.0
+  },
+  "visualization": {
+    "entity_lifetime_s": 3.0,
+    "hull_color_rgba": [0.1, 0.65, 1.0, 0.38],
+    "centreline_color_rgba": [1.0, 0.8, 0.05, 1.0],
+    "course_color_rgba": [1.0, 0.2, 0.1, 1.0],
+    "centreline_thickness_m": 0.22,
+    "maximum_hull_vertices": 256
+  }
+}

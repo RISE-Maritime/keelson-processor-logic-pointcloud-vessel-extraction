@@ -1,0 +1,19 @@
+services:
+  pointcloud-vessel-extraction:
+    build:
+      context: .
+      args:
+        KEELSON_IMAGE: ghcr.io/rise-maritime/keelson:0.6.0-pre.15
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - ./config/example.json:/config/config.json:ro
+    command:
+      - --config
+      - /config/config.json
+      - --mode
+      - client
+      - --connect
+      - tcp/127.0.0.1:7447
+      - --log-level
+      - "20"
